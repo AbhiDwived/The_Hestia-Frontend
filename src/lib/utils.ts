@@ -12,7 +12,7 @@ export function formatCurrency(amount: number, currency: string = 'INR'): string
     }).format(amount);
 }
 
-export function formatDate(date: Date | string, format: string = 'PP'): string {
+export function formatDate(date: Date | string): string {
     const dateObj = typeof date === 'string' ? new Date(date) : date;
     return dateObj.toLocaleDateString('en-IN');
 }

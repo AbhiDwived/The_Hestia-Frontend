@@ -61,7 +61,6 @@ const hotelsData: Record<string, any> = {
 };
 
 export default function HotelPage({ params }: { params: { slug: string } }) {
-    const router = useRouter();
     const { user } = useAuth();
     const [scrolled, setScrolled] = useState(false);
     const slug = params.slug;

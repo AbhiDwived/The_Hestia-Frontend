@@ -8,7 +8,7 @@ interface NavbarProps {
     user?: any;
 }
 
-export default function Navbar({ scrolled = false, user }: NavbarProps) {
+export default function Navbar({ user }: NavbarProps) {
     const router = useRouter();
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [hotelsDropdownOpen, setHotelsDropdownOpen] = useState(false);
