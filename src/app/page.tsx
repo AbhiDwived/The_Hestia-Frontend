@@ -39,11 +39,13 @@ export default function HomePage() {
             {/* 3. Booking System */}
             <BookingSystem />
 
-            {/* 4. Rooms */}
+             {/* 4. Accommodations */}
+            <Accommodations />
+
+            {/* 5. Rooms */}
             <Rooms />
 
-            {/* 5. Accommodations */}
-            <Accommodations />
+           
 
             {/* 6. Our Food */}
             <OurFood />

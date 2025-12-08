@@ -17,6 +17,15 @@ const featuredHotels = [
         image: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=600&fit=crop',
         amenities: ['Pool', 'Gym', 'Conference']
     },
+     {
+        name: 'The Hestia Hotel, Sector 132',
+        location: 'Greater Noida',
+        rating: 4.8,
+        reviews: 267,
+        price: 3999,
+        image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop',
+        amenities: ['WiFi', 'Gym', 'Parking']
+    },
     {
         name: 'The Hestia Hotel, Dwarka',
         location: 'New Delhi',
@@ -25,16 +34,8 @@ const featuredHotels = [
         price: 4299,
         image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&h=600&fit=crop',
         amenities: ['Spa', 'Restaurant', 'Bar']
-    },
-    {
-        name: 'The Hestia Hotel, Sector 132',
-        location: 'Noida',
-        rating: 4.8,
-        reviews: 267,
-        price: 3799,
-        image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop',
-        amenities: ['WiFi', 'Gym', 'Parking']
     }
+   
 ];
 
 interface AccommodationsProps {
@@ -79,7 +80,7 @@ export default function Accommodations({ title, excludeHotelName }: Accommodatio
 
                             {/* Hotel Info */}
                             <div className="p-5">
-                                <h3 className="text-lg font-bold mb-1 text-slate-800 group-hover:text-primary-500 transition-colors">
+                                <h3 className="text-lg font-bold mb-1 text-slate-800 group-hover:text-primary-500 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
                                     {hotel.name}
                                 </h3>
                                 <p className="text-slate-500 text-sm mb-3 flex items-center">

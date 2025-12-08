@@ -1,35 +1,35 @@
 const roomTypes = [
     {
-        name: 'Double Room',
-        description: 'Comfortable and spacious room with modern amenities and city view.',
-        beds: 3,
-        guests: 4,
-        price: 3500,
-        image: '/Hestia Images/Room image/Double Bedroom.jpg'
-    },
-    {
-        name: 'Small Suite',
-        description: 'Cozy suite perfect for couples with elegant furnishing and balcony.',
-        beds: 2,
-        guests: 3,
+        name: 'Deluxe Room',
+        description: 'Cozy room ideal for couples, featuring elegant furnishing and a cozy balcony.',
+        beds: 1,
+        guests: 2,
         price: 2999,
         image: '/Hestia Images/Room image/Single Bedroom.jpg'
     },
     {
-        name: 'Luxury room',
-        description: 'Premium luxury room featuring premium facilities and garden view.',
-        beds: 3,
-        guests: 6,
-        price: 4500,
-        image: '/Hestia Images/Room image/Luxury Room.jpg'
+        name: 'Super Deluxe Room',
+        description: 'Comfortable and spacious room with modern amenities and a city-view window.',
+        beds: 2,
+        guests: 3,
+        price: 3500,
+        image: '/Hestia Images/Room image/Double Bedroom.jpg'
     },
     {
         name: 'Junior Suite',
-        description: 'Spacious junior suite with separate living area and modern decor.',
-        beds: 4,
+        description: 'A spacious junior suite offering a separate living area and stylish décor.',
+        beds: 1,
         guests: 2,
-        price: 3299,
+        price: 4000,
         image: '/Hestia Images/Room image/Junior Suits.jpg'
+    },
+    {
+        name: 'Luxury Room',
+        description: 'Premium luxury room equipped with high-end facilities and a beautiful garden view.',
+        beds: 2,
+        guests: 4,
+        price: 5000,
+        image: '/Hestia Images/Room image/Luxury Room.jpg'
     }
 ];
 
