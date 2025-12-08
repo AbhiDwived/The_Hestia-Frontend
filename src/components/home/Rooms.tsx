@@ -34,12 +34,11 @@ const roomTypes = [
 ];
 
 interface RoomsProps {
-    hotelName?: string;
     customRooms?: any[];
     accommodationInfo?: string;
 }
 
-export default function Rooms({ hotelName, customRooms, accommodationInfo }: RoomsProps) {
+export default function Rooms({ customRooms, accommodationInfo }: RoomsProps) {
     // Use custom rooms if provided, otherwise default to roomTypes
     const displayRooms = customRooms || roomTypes;
 

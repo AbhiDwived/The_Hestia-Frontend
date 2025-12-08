@@ -69,7 +69,7 @@ const hotelsData: Record<string, any> = {
                 description: 'Well-appointed room with LED TV, geyser, and double bed with premium linen.',
                 beds: 1,
                 guests: 2,
-                price: 1999,
+                price: 2999,
                 image: '/hestia-stay-kasana/IMG-20251208-WA0096.jpg'
             },
             {
@@ -77,7 +77,7 @@ const hotelsData: Record<string, any> = {
                 description: 'Enhanced room with private balcony, LED TV, hot water, and premium amenities.',
                 beds: 1,
                 guests: 2,
-                price: 2499,
+                price: 3499,
                 image: '/hestia-stay-kasana/IMG-20251208-WA0090.jpg'
             }
         ],
@@ -306,7 +306,7 @@ export default function HotelPage({ params }: { params: { slug: string } }) {
 
 
             {/* 4. Rooms */}
-            <Rooms hotelName={currentHotel.name} customRooms={currentHotel.rooms} accommodationInfo={currentHotel.accommodationInfo} />
+            <Rooms customRooms={currentHotel.rooms} accommodationInfo={currentHotel.accommodationInfo} />
 
 
             {/* 5. Photo Gallery */}
