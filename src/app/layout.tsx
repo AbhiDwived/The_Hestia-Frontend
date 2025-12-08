@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { AuthProvider } from '@/context/AuthContext';
 import { HotelProvider } from '@/context/HotelContext';
+import FloatingContact from '@/components/common/FloatingContact';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
                 <AuthProvider>
                     <HotelProvider>
                         {children}
+                        <FloatingContact />
                     </HotelProvider>
                 </AuthProvider>
             </body>
