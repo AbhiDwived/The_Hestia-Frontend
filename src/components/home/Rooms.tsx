@@ -36,9 +36,10 @@ const roomTypes = [
 interface RoomsProps {
     hotelName?: string;
     customRooms?: any[];
+    accommodationInfo?: string;
 }
 
-export default function Rooms({ hotelName, customRooms }: RoomsProps) {
+export default function Rooms({ hotelName, customRooms, accommodationInfo }: RoomsProps) {
     // Use custom rooms if provided, otherwise default to roomTypes
     const displayRooms = customRooms || roomTypes;
 
@@ -54,6 +55,9 @@ export default function Rooms({ hotelName, customRooms }: RoomsProps) {
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-800">
                             Luxury Rooms
                         </h2>
+                        {accommodationInfo && (
+                            <p className="text-slate-600 mt-3 text-lg">{accommodationInfo}</p>
+                        )}
                     </div>
                     <button className="hidden md:flex items-center space-x-2 px-6 py-3 border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white transition-all duration-300 font-semibold">
                         <span>ALL ROOMS</span>

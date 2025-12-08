@@ -40,8 +40,8 @@ export default function Footer() {
                             </li>
                             <li className="flex items-start">
                                 <span className="mr-2 text-gold-400">📞</span>
-                                <a href="tel:+919211987979" className="hover:text-gold-400 transition-colors">
-                                    +91 9211987979
+                                <a href="tel:+919058522279" className="hover:text-gold-400 transition-colors">
+                                    +91 9058522279
                                 </a>
                             </li>
                         </ul>

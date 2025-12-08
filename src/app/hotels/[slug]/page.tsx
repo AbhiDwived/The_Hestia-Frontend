@@ -21,14 +21,103 @@ import Footer from '@/components/home/Footer';
 // Rich Data for Hotels
 const hotelsData: Record<string, any> = {
     'hestia-stay-kasana': {
-        name: 'Hestia Stay, Kasana',
-        subtitle: 'Experience the serenity of Kasana with robust luxury.',
-        image: 'https://images.unsplash.com/photo-1455587734955-081b22074882?w=1920&h=1080&fit=crop',
+        name: 'Hestia Stay Kasana – Kasna Site 4, Greater Noida',
+        subtitle: 'A strategically positioned hospitality asset offering comfort, functionality, and service reliability.',
+        image: '/hestia-stay-kasana/banner1.jpg',
+        description: 'Hestia Stay is a strategically positioned hospitality asset offering a balanced blend of comfort, functionality, and service reliability. Located in Kasna Site 4 near the Oppo Factory, the property is well-aligned to cater to corporate travellers, industrial visitors, and short-stay guests seeking dependable accommodation in the Greater Noida industrial corridor.\n\nWith a compact yet well-curated inventory of 16 thoughtfully designed rooms, the hotel is equipped to deliver a streamlined guest experience with a strong emphasis on operational discipline and service consistency.',
+        location: {
+            area: 'Kasna Site 4, Greater Noida',
+            distance: 'Near Oppo Factory',
+            accessibility: 'Adjacent to major corporate hubs and industrial zones, ensuring smooth accessibility for industrial clients, vendors, and corporate partners'
+        },
+        gallery: [
+            '/hestia-stay-kasana/banner1.jpg',
+            '/hestia-stay-kasana/IMG-20251208-WA0088.jpg',
+            '/hestia-stay-kasana/IMG-20251208-WA0089.jpg',
+            '/hestia-stay-kasana/IMG-20251208-WA0090.jpg',
+            '/hestia-stay-kasana/IMG-20251208-WA0091.jpg',
+            '/hestia-stay-kasana/IMG-20251208-WA0092.jpg',
+            '/hestia-stay-kasana/IMG-20251208-WA0093.jpg',
+            '/hestia-stay-kasana/IMG-20251208-WA0094.jpg',
+            '/hestia-stay-kasana/IMG-20251208-WA0095.jpg',
+            '/hestia-stay-kasana/IMG-20251208-WA0096.jpg'
+        ],
+        amenities: [
+            { name: 'LED TV', icon: 'TV' },
+            { name: 'Hot Water', icon: 'AC' },
+            { name: 'Double Bed', icon: 'RoomService' },
+            { name: 'Balcony Rooms', icon: 'Parking' },
+            { name: 'Garden Area', icon: 'Restaurant' },
+            { name: 'Daily Housekeeping', icon: 'Laundry' },
+            { name: 'Security', icon: 'Security' },
+            { name: 'Free Parking', icon: 'Parking' }
+        ],
+        features: [
+            '16 Fully Appointed Rooms: Designed to maximize comfort and utility for both business and leisure travellers',
+            'LED Television in all rooms',
+            'Geyser for round-the-clock hot water',
+            'Double Bed with premium linen',
+            'Balcony Rooms available for enhanced guest experience',
+            'Neat and clean washrooms with standard toiletries',
+            'Daily housekeeping aligned to quality benchmarks',
+            'Well-maintained garden area offering guests a refreshing environment',
+            'Prime location adjacent to major corporate hubs and Oppo Factory'
+        ],
+        rooms: [
+            {
+                name: 'Standard Room',
+                description: 'Well-appointed room with LED TV, geyser, and double bed with premium linen.',
+                beds: 1,
+                guests: 2,
+                price: 1999,
+                image: '/hestia-stay-kasana/IMG-20251208-WA0096.jpg'
+            },
+            {
+                name: 'Balcony Room',
+                description: 'Enhanced room with private balcony, LED TV, hot water, and premium amenities.',
+                beds: 1,
+                guests: 2,
+                price: 2499,
+                image: '/hestia-stay-kasana/IMG-20251208-WA0090.jpg'
+            }
+        ],
+        reviews: [
+            { name: 'Rajesh Kumar', rating: 5, comment: 'Perfect for business stay near Oppo Factory. Clean and comfortable rooms!', date: 'March 2024' },
+            { name: 'Amit Singh', rating: 5, comment: 'Great location for industrial visits. Professional service and well-maintained property.', date: 'February 2024' },
+            { name: 'Priya Sharma', rating: 4, comment: 'Good value for money. The garden area is a nice touch.', date: 'January 2024' },
+            { name: 'Vikram Patel', rating: 5, comment: 'Excellent for corporate travellers. Balcony room was very comfortable!', date: 'December 2023' }
+        ],
+        policies: {
+            checkIn: '1:00 PM',
+            checkOut: '11:00 AM',
+            cancellation: 'Free cancellation up to 24 hours before check-in',
+            rules: [
+                'Valid ID proof required at check-in',
+                'Smoking is prohibited in rooms',
+                'Pets are not allowed',
+                'Outside food and beverages not permitted',
+                'Guests are responsible for any damage to hotel property'
+            ]
+        },
+        contact: {
+            phone: '+91 9058522279',
+            email: 'info@hestiahotels.com',
+            address: 'Kasna Site 4, Near Oppo Factory, Greater Noida, Uttar Pradesh'
+        },
+        mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.5!2d77.4950!3d28.4580!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc1e4a8f8a8a1%3A0x1234567890!2sKasna%20Site%204%2C%20Greater%20Noida!5e0!3m2!1sen!2sin!4v1234567890',
+        nearbyPlaces: [
+            'Oppo Factory - 0.5 km',
+            'Corporate Hubs - 1 km',
+            'Industrial Zones - 2 km',
+            'Greater Noida - 5 km',
+            'Kasna Metro Station - 3 km'
+        ]
     },
     'hestia-hotel-&-Restaurant-Knowledge-Park-3': {
         name: 'Hestia Hotel & Restaurant – Knowledge Park III, Greater Noida',
         subtitle: 'A flagship asset under DSY Hospitality, delivering elevated guest experiences through strategic location and service excellence.',
         image: '/hestia-hotel-&-Restaurant-Knowledge-Park-3/Banner1.jpg',
+        accommodationInfo: 'Total 36 Rooms - 27 Deluxe Rooms & 9 Super Deluxe Rooms',
         description: 'Hestia Hotel & Restaurant is a flagship asset under the DSY Hospitality portfolio, positioned to deliver an elevated guest experience through its strategic location, contemporary facilities, and service-driven operational framework. Situated in Knowledge Park III near the Expo Centre, the property serves as a preferred choice for corporate travellers, exhibition delegates, families, and leisure guests.\n\nThe hotel has been engineered to uphold best-in-class service delivery, with a focus on comfort, consistency, and customer satisfaction. The dedicated restaurant enhances the overall value proposition, offering a curated dining experience that complements the hotel\'s accommodation standards.',
         location: {
             area: 'Knowledge Park III, Greater Noida',
@@ -97,6 +186,7 @@ const hotelsData: Record<string, any> = {
             { name: 'Laundry', icon: 'Laundry' }
         ],
         features: [
+            'Accommodation: Total 36 Rooms - 27 Deluxe Rooms & 9 Super Deluxe Rooms',
             'Well-Appointed Rooms: Modern, comfortable accommodation equipped with essential amenities',
             'In-Room Comforts: High-quality bedding, LED TV, air-conditioning, Wi-Fi, hygienic washrooms',
             'On-Site Restaurant: Dedicated dining outlet serving freshly prepared dishes',
@@ -149,7 +239,7 @@ const hotelsData: Record<string, any> = {
             ]
         },
         contact: {
-            phone: '+91 9211987979',
+            phone: '+91 9058522279',
             email: 'info@hestiahotels.com',
             address: 'Plot No- 14/29 A, near Pari Chowk, Knowledge Park III, Greater Noida, Uttar Pradesh 201310'
         },
@@ -216,7 +306,7 @@ export default function HotelPage({ params }: { params: { slug: string } }) {
 
 
             {/* 4. Rooms */}
-            <Rooms hotelName={currentHotel.name} customRooms={currentHotel.rooms} />
+            <Rooms hotelName={currentHotel.name} customRooms={currentHotel.rooms} accommodationInfo={currentHotel.accommodationInfo} />
 
 
             {/* 5. Photo Gallery */}
