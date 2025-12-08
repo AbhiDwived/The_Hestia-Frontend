@@ -48,9 +48,9 @@ export default function Rooms({ hotelName, customRooms }: RoomsProps) {
                 {/* Section Header */}
                 <div className="flex items-start justify-between mb-12">
                     <div>
-                        <p className="text-primary-500 font-semibold mb-2 text-sm uppercase tracking-wide">
+                        {/* <p className="text-primary-500 font-semibold mb-2 text-sm uppercase tracking-wide">
                             {hotelName ? `Experience ${hotelName}` : 'Deluxe And Luxury'}
-                        </p>
+                        </p> */}
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-800">
                             Luxury Rooms
                         </h2>

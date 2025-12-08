@@ -3,17 +3,19 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 
-// Import all home page components
+// Import hotel-specific components only
 import Navbar from '@/components/home/Navbar';
 import Banner from '@/components/home/Banner';
 import BookingSystem from '@/components/home/BookingSystem';
+import HotelDetails from '@/components/home/HotelDetails';
+import PhotoGallery from '@/components/hotel/PhotoGallery';
+import AmenitiesGrid from '@/components/hotel/AmenitiesGrid';
 import Rooms from '@/components/home/Rooms';
-import Accommodations from '@/components/home/Accommodations';
-import OurFood from '@/components/home/OurFood';
-import ExpertMembers from '@/components/home/ExpertMembers';
-import Reviews from '@/components/home/Reviews';
-import AwesomePlace from '@/components/home/AwesomePlace';
-import OurBlog from '@/components/home/OurBlog';
+import RestaurantSection from '@/components/hotel/RestaurantSection';
+import ReviewsSection from '@/components/hotel/ReviewsSection';
+import LocationMap from '@/components/hotel/LocationMap';
+import PoliciesSection from '@/components/hotel/PoliciesSection';
+import ContactSection from '@/components/hotel/ContactSection';
 import Footer from '@/components/home/Footer';
 
 // Rich Data for Hotels
@@ -24,13 +26,88 @@ const hotelsData: Record<string, any> = {
         image: 'https://images.unsplash.com/photo-1455587734955-081b22074882?w=1920&h=1080&fit=crop',
     },
     'hestia-hotel-&-Restaurant-Knowledge-Park-3': {
-        name: 'Hestia Hotel & Restaurant, Knowledge Park-3',
-        hideSimilarProperties: true,
-        subtitle: 'Located in the heart of Knowledge Park, offering modern amenities.',
+        name: 'Hestia Hotel & Restaurant – Knowledge Park III, Greater Noida',
+        subtitle: 'A flagship asset under DSY Hospitality, delivering elevated guest experiences through strategic location and service excellence.',
         image: '/hestia-hotel-&-Restaurant-Knowledge-Park-3/Banner1.jpg',
+        description: 'Hestia Hotel & Restaurant is a flagship asset under the DSY Hospitality portfolio, positioned to deliver an elevated guest experience through its strategic location, contemporary facilities, and service-driven operational framework. Situated in Knowledge Park III near the Expo Centre, the property serves as a preferred choice for corporate travellers, exhibition delegates, families, and leisure guests.\n\nThe hotel has been engineered to uphold best-in-class service delivery, with a focus on comfort, consistency, and customer satisfaction. The dedicated restaurant enhances the overall value proposition, offering a curated dining experience that complements the hotel\'s accommodation standards.',
+        location: {
+            area: 'Knowledge Park III, Greater Noida',
+            distance: 'Just 1.5 km from the Expo Centre',
+            accessibility: 'Excellent accessibility to corporate parks, educational hubs, metro stations, and commercial zones'
+        },
+        gallery: [
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0016.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0017.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0018.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0019.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0021.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0025.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0026.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0030.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0031.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0032.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0033.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0034.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0035.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0037.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0040.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0041.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0042.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0043.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0051.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0052.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0053.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0054.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0057.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0058.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0059.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0060.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0061.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0062.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0063.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0064.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0065.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0066.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0067.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0068.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0069.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0070.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0071.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0072.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0073.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0074.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0076.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0077.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0078.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0079.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0083.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0084.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0085.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251208-WA0086.jpg',
+            '/hestia-hotel-&-Restaurant-Knowledge-Park-3/WhatsApp Image 2025-11-25 at 09.49.56_4ad75dfe.jpg'
+        ],
+        amenities: [
+            { name: 'Free WiFi', icon: 'WiFi' },
+            { name: 'Air Conditioning', icon: 'AC' },
+            { name: 'LED TV', icon: 'TV' },
+            { name: 'Restaurant', icon: 'Restaurant' },
+            { name: 'Free Parking', icon: 'Parking' },
+            { name: 'Room Service', icon: 'RoomService' },
+            { name: 'Security', icon: 'Security' },
+            { name: 'Laundry', icon: 'Laundry' }
+        ],
+        features: [
+            'Well-Appointed Rooms: Modern, comfortable accommodation equipped with essential amenities',
+            'In-Room Comforts: High-quality bedding, LED TV, air-conditioning, Wi-Fi, hygienic washrooms',
+            'On-Site Restaurant: Dedicated dining outlet serving freshly prepared dishes',
+            '24/7 front office support',
+            'Strong emphasis on cleanliness and hygiene',
+            'Guest-first service approach',
+            'Safety & Compliance: Secure premises with disciplined focus on guest privacy'
+        ],
         rooms: [
             {
-                name: 'Deluxe Room', // Was Small Suite
+                name: 'Deluxe Room',
                 description: 'Cozy suite perfect for couples with elegant furnishing and balcony.',
                 beds: 2,
                 guests: 3,
@@ -38,13 +115,51 @@ const hotelsData: Record<string, any> = {
                 image: '/Hestia Images/Room image/Single Bedroom.jpg'
             },
             {
-                name: 'Super Deluxe Room', // Was Double Room
+                name: 'Super Deluxe Room',
                 description: 'Comfortable and spacious room with modern amenities and city view.',
                 beds: 3,
                 guests: 4,
                 price: 3500,
                 image: '/Hestia Images/Room image/Double Bedroom.jpg'
             }
+        ],
+        restaurant: {
+            name: 'Hestia Restaurant',
+            description: 'A dedicated dining outlet serving a variety of freshly prepared dishes, suitable for corporate guests, walk-ins, and long-stay clients.',
+            cuisine: ['Indian', 'Continental', 'Chinese'],
+            timings: '7:00 AM - 11:00 PM',
+            image: '/hestia-hotel-&-Restaurant-Knowledge-Park-3/IMG-20251206-WA0037.jpg'
+        },
+        reviews: [
+            { name: 'Rajesh Kumar', rating: 5, comment: 'Excellent location near Expo Centre. Clean rooms and great service!', date: 'March 2024' },
+            { name: 'Priya Sharma', rating: 5, comment: 'Perfect for business travelers. Professional staff and good amenities.', date: 'February 2024' },
+            { name: 'Amit Singh', rating: 4, comment: 'Good value for money. Restaurant food is delicious.', date: 'January 2024' },
+            { name: 'Neha Gupta', rating: 5, comment: 'Very comfortable stay. Will definitely come back!', date: 'December 2023' }
+        ],
+        policies: {
+            checkIn: '1:00 PM',
+            checkOut: '11:00 AM',
+            cancellation: 'Free cancellation up to 24 hours before check-in',
+            rules: [
+                'Valid ID proof required at check-in',
+                'Smoking is prohibited in rooms',
+                'Pets are not allowed',
+                'Outside food and beverages not permitted',
+                'Guests are responsible for any damage to hotel property'
+            ]
+        },
+        contact: {
+            phone: '+91 9211987979',
+            email: 'info@hestiahotels.com',
+            address: 'Plot No- 14/29 A, near Pari Chowk, Knowledge Park III, Greater Noida, Uttar Pradesh 201310'
+        },
+        mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.8!2d77.4753!3d28.4742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDI4JzI3LjEiTiA3N8KwMjgnMzEuMSJF!5e0!3m2!1sen!2sin!4v1234567890',
+        nearbyPlaces: [
+            'Expo Centre - 1.5 km',
+            'Knowledge Park Metro Station - 2 km',
+            'Pari Chowk - 3 km',
+            'India Expo Mart - 1.8 km',
+            'Corporate Parks - 1-2 km'
         ]
     },
     'the-hestia-hotel-dwarka': {
@@ -99,30 +214,40 @@ export default function HotelPage({ params }: { params: { slug: string } }) {
             {/* 3. Booking System Pre-filled */}
             <BookingSystem defaultDestination={currentHotel.name} />
 
-            {/* 4. Rooms with Hotel Name Header */}
+
+            {/* 4. Rooms */}
             <Rooms hotelName={currentHotel.name} customRooms={currentHotel.rooms} />
 
-            {/* 5. Accommodations (Cross-sell) */}
-            {!currentHotel.hideSimilarProperties && (
-                <Accommodations title="Explore Our Other Properties" />
-            )}
 
-            {/* 6. Our Food */}
-            <OurFood />
+            {/* 5. Photo Gallery */}
+            {currentHotel.gallery && <PhotoGallery images={currentHotel.gallery} hotelName={currentHotel.name} defaultImage="IMG-20251206-WA0041.jpg" />}
 
-            {/* 7. Expert Members */}
-            <ExpertMembers />
+            {/* 6. Hotel Details */}
+            <HotelDetails
+                description={currentHotel.description}
+                location={currentHotel.location}
+                features={currentHotel.features}
+            />
 
-            {/* 8. Reviews */}
-            <Reviews />
+            {/* 7. Amenities Grid */}
+            {currentHotel.amenities && <AmenitiesGrid amenities={currentHotel.amenities} />}
 
-            {/* 9. Awesome Place */}
-            <AwesomePlace />
+            {/* 8. Restaurant */}
+            {currentHotel.restaurant && <RestaurantSection restaurant={currentHotel.restaurant} />}
 
-            {/* 10. Our Blog */}
-            <OurBlog />
+            {/* 9. Reviews */}
+            {currentHotel.reviews && <ReviewsSection reviews={currentHotel.reviews} />}
 
-            {/* 11. Footer */}
+            {/* 10. Location & Map */}
+            {currentHotel.contact && <LocationMap address={currentHotel.contact.address} mapUrl={currentHotel.mapUrl} nearbyPlaces={currentHotel.nearbyPlaces} />}
+
+            {/* 11. Policies */}
+            {currentHotel.policies && <PoliciesSection {...currentHotel.policies} />}
+
+            {/* 12. Contact */}
+            {currentHotel.contact && <ContactSection {...currentHotel.contact} />}
+
+            {/* 13. Footer */}
             <Footer />
         </div>
     );
