@@ -38,7 +38,7 @@ export default function FloatingContact() {
         <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
             {/* WhatsApp Button */}
             <a
-                href={`https://wa.me/919990555740?text=${message}`}
+                href={`https://wa.me/919058522279?text=${message}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"

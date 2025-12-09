@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 interface NavbarProps {
     scrolled?: boolean;
@@ -27,9 +28,7 @@ export default function Navbar({ user }: NavbarProps) {
                 <div className="mx-auto px-6 py-4 flex items-center justify-between">
                     {/* Logo - Left Side */}
                     <div className="flex items-center space-x-3 cursor-pointer" onClick={() => router.push('/')}>
-                        <div className="w-12 h-12 bg-gradient-to-br from-primary-700 to-primary-600 rounded-lg flex items-center justify-center shadow-lg">
-                            <span className="text-white font-bold text-2xl">H</span>
-                        </div>
+                        <Image src="/The_Hestia_Hotels.png" alt="Hestia Hotels Logo" width={48} height={48} className="rounded-lg" />
                         <div>
                             <span className="text-2xl font-bold text-white">The Hestia Hotels</span>
                         </div>
@@ -136,9 +135,7 @@ export default function Navbar({ user }: NavbarProps) {
                     {/* Sidebar Header */}
                     <div className="flex items-center justify-between p-6 border-b border-slate-200">
                         <div className="flex items-center space-x-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-primary-700 to-primary-600 rounded-lg flex items-center justify-center shadow-lg">
-                                <span className="text-white font-bold text-xl">H</span>
-                            </div>
+                            <Image src="/The_Hestia_Hotels.png" alt="Hestia Hotels Logo" width={40} height={40} className="rounded-lg" />
                             <span className="text-xl font-bold text-primary-700">The Hestia</span>
                         </div>
                         <button
