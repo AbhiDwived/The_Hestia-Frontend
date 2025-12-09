@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useAuth } from '@/hooks/useAuth';
+import { useAppSelector } from '@/store/hooks';
 
 // Import hotel-specific components only
 import Navbar from '@/components/home/Navbar';
@@ -265,7 +265,7 @@ const hotelsData: Record<string, any> = {
 };
 
 export default function HotelPage({ params }: { params: { slug: string } }) {
-    const { user } = useAuth();
+    const user = useAppSelector((state) => state.auth.user);
     const [scrolled, setScrolled] = useState(false);
     const slug = params.slug;
 

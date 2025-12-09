@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { AuthProvider } from '@/context/AuthContext';
+import { ReduxProvider } from '@/store/Provider';
 import { HotelProvider } from '@/context/HotelContext';
 import FloatingContact from '@/components/common/FloatingContact';
 
@@ -20,12 +20,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.variable}>
-                <AuthProvider>
+                <ReduxProvider>
                     <HotelProvider>
                         {children}
                         <FloatingContact />
                     </HotelProvider>
-                </AuthProvider>
+                </ReduxProvider>
             </body>
         </html>
     );

@@ -48,7 +48,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             localStorage.setItem('refreshToken', refreshToken);
             setUser(user);
 
-            router.push('/hotels');
+            // Role-based routing
+            const adminRoles = ['HOTEL_ADMIN', 'MANAGER'];
+            if (adminRoles.includes(user.role)) {
+                router.push('/hotels');
+            } else {
+                router.push('/');
+            }
         } catch (error) {
             throw error;
         }
@@ -70,7 +76,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             localStorage.setItem('refreshToken', refreshToken);
             setUser(user);
 
-            router.push('/hotels');
+            // Role-based routing
+            const adminRoles = ['HOTEL_ADMIN', 'MANAGER'];
+            if (adminRoles.includes(user.role)) {
+                router.push('/hotels');
+            } else {
+                router.push('/');
+            }
         } catch (error) {
             throw error;
         }

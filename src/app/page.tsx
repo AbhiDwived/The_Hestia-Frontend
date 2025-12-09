@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useAuth } from '@/hooks/useAuth';
+import { useAppSelector } from '@/store/hooks';
 
 // Import all home page components
 import Navbar from '@/components/home/Navbar';
@@ -17,7 +17,7 @@ import OurBlog from '@/components/home/OurBlog';
 import Footer from '@/components/home/Footer';
 
 export default function HomePage() {
-    const { user } = useAuth();
+    const user = useAppSelector((state) => state.auth.user);
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {

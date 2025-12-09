@@ -3,18 +3,57 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { useLoginMutation, useRegisterMutation } from '@/store/api/authApi';
+import { useAppDispatch } from '@/store/hooks';
+import { setUser } from '@/store/slices/authSlice';
 
 export default function LoginPage() {
     const router = useRouter();
+    const dispatch = useAppDispatch();
+    const [login, { isLoading: isLoginLoading }] = useLoginMutation();
+    const [register, { isLoading: isRegisterLoading }] = useRegisterMutation();
     const [isLogin, setIsLogin] = useState(true);
     const [formData, setFormData] = useState({ email: '', password: '', name: '', phone: '', confirmPassword: '' });
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [error, setError] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const isLoading = isLoginLoading || isRegisterLoading;
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // TODO: Implement authentication logic
-        console.log(isLogin ? 'Login' : 'Signup', formData);
+        setError('');
+
+        try {
+            if (isLogin) {
+                const result = await login({ email: formData.email, password: formData.password }).unwrap();
+                dispatch(setUser(result.user));
+                const adminRoles = ['HOTEL_ADMIN', 'MANAGER', 'hotel_admin', 'manager'];
+                router.push(adminRoles.includes(result.user.role) ? '/hotels' : '/');
+            } else {
+                if (formData.password !== formData.confirmPassword) {
+                    setError('Passwords do not match');
+                    return;
+                }
+
+                const nameParts = formData.name.trim().split(' ');
+                const firstName = nameParts[0] || '';
+                const lastName = nameParts.slice(1).join(' ') || nameParts[0];
+
+                const result = await register({
+                    email: formData.email,
+                    password: formData.password,
+                    firstName,
+                    lastName,
+                    phone: formData.phone,
+                }).unwrap();
+                dispatch(setUser(result.user));
+                const adminRoles = ['HOTEL_ADMIN', 'MANAGER', 'hotel_admin', 'manager'];
+                router.push(adminRoles.includes(result.user.role) ? '/hotels' : '/');
+            }
+        } catch (err: any) {
+            setError(err.data?.message || 'An error occurred. Please try again.');
+        }
     };
 
     return (
@@ -44,6 +83,13 @@ export default function LoginPage() {
                             Sign Up
                         </button>
                     </div>
+
+                    {/* Error Message */}
+                    {error && (
+                        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                            {error}
+                        </div>
+                    )}
 
                     {/* Form */}
                     <form onSubmit={handleSubmit} className="space-y-4">
@@ -160,9 +206,10 @@ export default function LoginPage() {
 
                         <button
                             type="submit"
-                            className="w-full bg-gradient-to-r from-primary-600 to-primary-700 text-white py-3 rounded-lg font-semibold hover:from-primary-700 hover:to-primary-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                            disabled={isLoading}
+                            className="w-full bg-gradient-to-r from-primary-600 to-primary-700 text-white py-3 rounded-lg font-semibold hover:from-primary-700 hover:to-primary-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                         >
-                            {isLogin ? 'Sign In' : 'Create Account'}
+                            {isLoading ? 'Please wait...' : (isLogin ? 'Sign In' : 'Create Account')}
                         </button>
                     </form>
 
